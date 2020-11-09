@@ -21,7 +21,3 @@ This displays the POST part of the assignment, where the requests are sent to a 
 
 For the next part of the assignment I will be adding more front-end functionality, site-navigation, CSS – Styling, as well as more interfaces/title etc.
 The application will allow the use of POSTMAN to try out the POST/GET Requests, showing the functionality works inside the application.
-
-.env file: 
-PORT=3001
-DATABASE_URL = mongodb+srv://db-admin:Jesus2013!@onikaquotes.8lqzp.mongodb.net/OnikaQuotes?retryWrites=true&w=majority 
