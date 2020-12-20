@@ -1,14 +1,12 @@
-import
-{
-	Router
-}
-from 'express';
+import { Router } from 'express';
+
+import { verify } from '../middleware';
 import Quote from '../models/quote';
 
 const router = Router();
 
 // Create
-router.post('/', async (req, res) =>
+router.post('/', verify, async (req, res) =>
 {
 	const quote = new Quote(req.body);
 	await quote.save();
@@ -20,8 +18,8 @@ router.get('/', async (req, res) =>
 {
 	const quotes = await Quote.find(
     {});
-    //adding some CSS Styling directly into the HTMl, I will add a stylesheet for assignment three's front end.
-	return res.send('<style> body { background-color: lightpink} </style> <h1> here are the quotes requested: </h1>' + '<h3>' + quotes + '</h3>');
+	return res.send(quotes);
+
 });
 
 router.get('/:quoteId', async (req, res) =>

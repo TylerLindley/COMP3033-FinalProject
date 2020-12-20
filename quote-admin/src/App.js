@@ -1,11 +1,10 @@
-import { BrowserRouter as Router,
-         Switch,
-         Route} from 'react-router-dom';
-import Header from './components/header';
-
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Button, Container} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Quotes from './components/quotes/index.js';
+
+import Header from './components/header';
+import Quotes from './screens/quotes/index.js';
+import Login from './screens/login';
 
 import './bootstrap.css';
 
@@ -14,12 +13,15 @@ function App() {
   return (
     <Container >
     <Router>
-      <div className="App">
+      <div className="container">
         <Header />
           <main>
             <Switch>
+            <Route path="/login">
+              <Login />
+            </Route>
   {/* creating a switch case for my URl, it will display these quotes when you visit these pages} */}
-              <Route path="quotes">
+              <Route path="/quotes">
                   <Quotes />
               </Route>
               <Route path="/funny">
@@ -37,12 +39,15 @@ function App() {
                       <h2><a href="https://www.youtube.com/watch?v=PzGZamtlRP0" > Click here to watch the video. </a>  </h2>
                       <h2>Date of Quote: December 3rd 2012 </h2> </div>
               </Route>
-              <Route path="/">
-                <div> 
+              <Route path="/home">
+              <div> 
                   <Button href="funny"> Click for a Funny Quote </Button>
                   <Button href="heartfelt"> Click here for a heartfelt quote </Button>
                   <Button href="random"> Click here for a random quote </Button>                                
-                </div>
+              </div>
+              </Route>
+              <Route path="/">
+                <Login />
               </Route>
             </Switch>
           </main>
